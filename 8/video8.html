@@ -13,7 +13,38 @@
   <script>
     //operatore di assegnazione =
     //deve iniziare con lettera o segno del $ o _ (underscore)
-    
+    //può contenere numeri, ma non può iniziare con un numero
+    //case sensitive
+    //non usare parole chiavi (keyward) o parole protette
+    //dichiarazione di una variabile
+    var prima = 5;
+    //più assegnazioni in una stessa riga
+    var uno = 8, due = 'stringa', tre = [];
+    //var let const
+    //var è l'unico modo per dichiarare variabili fino al ECMAScript 5
+    //let e const sono stati introdotti con il 6
+    let varLet = 8;
+    varLet = 10;
+    //const varCons = 90;
+    //varCons = 100; //non si può cambiare il valore di una costante
+    const obj = {}; //il valore assegnato è l'oggetto
+    obj.x = 10; //le proprietà si possono modificare
+    obj.y = 100; //il valore costante è il tipo oggetto
+    const arr = []; //il valore assegnato è un array
+    arr[0] = 200; // anche qui i valori interni possono essere cambiati
+    //varCons = 2; //dà errore
+    //arr = 'qualsiasi cosa'; //dà errore
+    //la prassi è dichiarare le COSTANTI con le lettere MAIUSCOLE
+    //cosa può contenere
+    let xx = 9;
+    xx = 'fifsif';
+    xx = true;
+    xx = [];
+    xx = {};
+    xx = function() {};
+    //undefined (no value) e null (no object)
+    let terza; // variabile non dichiarata
+    console.log(terza); //è undefined
   </script>
 
 </body>

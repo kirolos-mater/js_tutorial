@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>video9</title>
+</head>
+<body>
+  <h1>Titolo h1</h1>
+  <button id="btn">Cliccami</button>
+  <p id="display">Primo paragrafo</p>
+  <script>
+  //lo scoper è l'ambiente in cui 'vive' la variabile
+  //da quando si apre il tag script a quando si chiude sia sta nello scope globale
+    //scope globale
+    var x = 10;
+    let y = 50;
+    function funz1() {
+      //scope funzione
+      console.log(x);
+      console.log(y);
+      var q = 66;
+      console.log(q);
+      let z = 50;
+      console.log(z);
+    }
+    funz1();
+    //console.log(z); //dà errore, 'z' esiste solo dentro la funzione
+    //console.log(x);
+    //console.log(y);
+    //console.log(q); //dà errore, 'q' esiste solo all'interno della funzione
+    //un blocco di codice è rappresentato dalle {}
+    if (true){
+      //scope blocco
+      console.log(x);
+      console.log(y);
+      var xx = 10;
+      let yy = 100;
+      console.log(xx);
+      console.log(yy);
+    }
+    //console.log(yy); //dà errore
+    console.log(xx); //comprare
+  </script>
+
+</body>
+</html>
