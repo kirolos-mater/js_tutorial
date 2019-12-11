@@ -23,13 +23,27 @@
     console.log(arit);
     var exp = 6**2;
     console.log(exp);
-
     //assegnazione + aritmetici: +=, -=, *=, /=, %=
-    
+    //per la concatenazione di stringhe si usa solo +=
+    var assegnArit = 'stringa 1';
+    assegnArit += 'stringa 2';
+    console.log(assegnArit);
     //operatori di comparazione: ==, ===, !=, !==, >, <, >=, <=, ternario
+    //operatore ternario è composto da 3 parti
+    //la prima parte è composta dalla comparazione
+    //la seconda parte è il punto di domanda
+    //la terza parte è composta dalle assegnazioni
+    var uno = 5 > 10 ? 'vero' : 'falso';
+    console.log(uno);
     //operatori logici: &&, !, ||
+    console.log(4 < 5 && 10 > 7);
+    console.log(!(4 < 5) || 10 > 7);
     //type operator (operatori di tipo): typeof instanceof
+    var numero = [];
+    console.log(typeof numero);
+    console.log(numero instanceof Array);
     //operatori seguono una precedenza
+    console.log(5 + 4 * 5 > 10 - 6);
   </script>
 </body>
 
