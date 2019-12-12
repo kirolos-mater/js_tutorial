@@ -27,11 +27,35 @@
     // let stringa1 = 'E\' arrivata l\'estate';
     // document.getElementById('display').innerHTML = stringa1;
     //stringa come valore iterabile
-    let stringa1 = 'ciao ciao'; //gli spazi vuoti sono contati come caratteri
-    console.log(stringa1.length);
+    //let stringa1 = 'ciao ciao'; //gli spazi vuoti sono contati come caratteri
+    //console.log(stringa1.length);
+    //console.log(stringa1[0]);
     //inserire variabili
+    let uno = 1;
+    let due = 'due';
+    // let stringa1 = ' la variabile uno: ' + uno + '<br> la variabile due: ' + due;
+    // document.getElementById('display').innerHTML = stringa1;
+    // let stringa1 = ` la variabile uno:  ${uno}  <br> la variabile due:  ${due}`;
+    // document.getElementById('display').innerHTML = stringa1;
     //inserire unicode
+    let stringa1 = 'ciao \u2026';
+    document.getElementById('display').innerHTML = stringa1;
     //oggetto String() e conversione di altri tipi di dato
+    let num = 6;
+    console.log(typeof num);
+    num = String(num);
+    console.log(typeof num);
+    let newStringa = new String(6);
+    console.log(typeof newStringa);
+    let num2 = 5;
+    num2 = '' + num2;
+    console.log(typeof num2);
+    //metodi per stringhe
+    let upperCase = 'CIAO';
+    console.log(upperCase.toLowerCase);
+    let trim = '    ciao    ';
+    console.log(trim.length);
+    console.log(trim.trim().length);
   </script>
 </body>
 </html>
