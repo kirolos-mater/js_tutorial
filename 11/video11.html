@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>i numeri in javascript</title>
 </head>
 <body>
     <h1>Titolo h1</h1>
@@ -9,18 +10,46 @@
     <script>
     //conversione stringhe in numeri
     let stringa = '10.5';
-    console.log(parseFloat(stringa));
-    console.log(typeof parseFloat(stringa));
-    console.log(typeof Number(stringa));
-    console.log(typeof +stringa);
+    console.log(parseInt(stringa)); //output: 10
+    console.log(parseFloat(stringa));//output: 10.5
+    console.log(typeof Number(stringa)); //output: number
+    console.log(typeof +stringa); //output: number
     let mista = 3 + 3 + 'stringa';
-    console.log(mista);
-    mista = 'stringa' + 3 + 3;
-    console.log(mista);
+    console.log(mista); //output: 6stringa
+    mista = 'stringa' + 3 + 3; 
+    console.log(mista);//output: stringa33
+    let num = 6;
+    console.log(num.toString(2));//conversione da decimale a binario
+    //se non specifichi nulla, rimane in decimale, altrimenti converte la base
+    
     //NaN (Not a Number)
+    console.log(isNaN(num)); //output: false
+    
     //Infinity
+    let divisione = 3 / 0;
+    console.log(divisione); //output: Infinity
+    
     //numeri decimali, ottali, esadecimali e binari
+    let binario = 0b111;
+    let ottale = 0o3456;
+    let esadecimale = 0xFFAA;
+    console.log(parseInt(esadecimale, 16)); //output: 414800
+    //converte da qualsiasi base a decimale
+    
     //numeri con virgola (float)
+    let somma = 0.1 + 0.2;
+    console.log(somma); //output: 0.30000000000000004
+    //javascript fa fatica a gestire i decimali
+    //si possono moltiplicare entrambi i valori per 10 prima di sommarli
+    //per poi dividere il tutto dento il log
+    //oppure si usa la proprietà EPSILON di ES6
+    console.log(Number.EPSILON); //output: 2.220446049250313e-16
+    console.log(somma - 0.3 < Number.EPSILON); //output: true
+    console.log(Number.MAX_VALUE); //output: 1.7976931348623157e+308
+    console.log(Number.MIN_VALUE); //output: 5e-324
+    let decimale = 1.23456789;
+    //per approssimare
+    console.log(decimale.toFixed(4)); //output: 1.2346 
     </script>
 </body>
 </html>
