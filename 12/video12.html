@@ -12,10 +12,32 @@
     
     //operatori per valori booleani
     // ==, ===, >, <, >=, <=, !=, !==, &&, ||, !, ternario?:
-
-    //valori che ritornano falso: 0, NaN, '', undefined, null, false
+    console.log(3 === 5); //output: false
+    console.log(3 !== 5); //output: true
+    console.log(!3); //output: false 
+    console.log('3' == 3); //output: true
+    console.log('3' === 3); //output: false
+    console.log(3 > 2 && 5 < 10); //output: true
 
     //conversione di un valore in booleano
+    console.log(Boolean(4)); //output: true
+    //tutti i numeri ritornano true tranne lo 0 che ritorna false
+    console.log(typeof Boolean('stringa')); //output: boolean
+    let num = 5;
+    let num1 = '5';
+    console.log(!!num); //output: true
+    console.log(!!num1); //output: true
+
+    //valori che ritornano falso: 0, NaN, '', undefined, null, false
+    console.log(Boolean(0)); //output: false
+    console.log(Boolean('0')); //output: true
+    console.log(Boolean(NaN)); //output: false
+    console.log(Boolean('NaN')); //output: true
+    console.log(Boolean('')); //output: false
+    console.log(Boolean(undefined)); //output: false
+    console.log(Boolean(null)); //output: false
+    console.log(Boolean(false)); //output: false
+    console.log(Boolean('false')); //output: true
     </script>
     
 </body>
