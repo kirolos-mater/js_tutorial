@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Gli array in javascript</title>
+</head>
+<body>
+    <h1>Titolo h1</h1>
+    <!-- <button id="btn">Cliccami</button> -->
+    <p id="display">Primo paragrafo</p>
+
+    <script>
+        //creare un array
+        let array = ['stringa', 43543, true, function(){}, {}, []];
+        //let array2 = new Array(); //dichiarazione sconsigliata
+        console.log(array.length);
+
+        //array type
+        console.log(typeof array);
+        console.log(array instanceof Array); //verificare che sia un array
+        console.log(Array.isArray(array));
+
+        //aggiungere elemento, attenzione ai buchi
+        //aggiungere elemento () - push/unshift
+        array[0] = 34;
+        console.log(array[0]);
+        array[10] = 34;
+        console.log(array[0]); 
+        console.log(array.length);
+        //è sconsigliato provocare buchi dentro un array
+        let array1 = [1, 2, 3, 4];
+        array1[array1.length] = 1000; //per inserire un elemento alla fine
+        console.log(array1[4]);
+        //altro modo per inserire elemento alla fine
+        array1.push(2000);
+        console.log(array1[5]);
+        console.log(array1.length);
+        array.unshift('inizio');
+        console.log(array1[0]);
+        console.log(array1.length);
+
+        //eliminare elemento - pop/shift
+        let ultimo = array1.pop();
+        console.log(array1.length);
+        console.log(ultimo);
+        array1.shift();
+        console.log(array1.length);
+
+
+
+        //sovrascrivere elemento
+        console.log(array1[0]);
+        array1[0] = 'stringa';
+        console.log(array1[0]); 
+
+        
+        //azzerare array
+        array1 = [];
+        console.log(array1.length);
+
+        //ciclare array
+        let nuovo = [2, 45, 67];
+        nuovo.forEach(function(elem, index) {
+            console.log('Elemento: ' + elem + ' indice: ' + index);
+        });
+
+        //concatenare array concat/push+spread operator
+        let uno = [34, 56];
+        let due = [67, 89];
+        let tre = uno.concat(due);
+        console.log(tre);
+        //altro modo introdotto con ES6
+        uno.push(...due);
+        console.log(uno);
+
+        //rimuovere elementi e aggiungerne altri
+        //primo num = posizione, secondo num = elemento da togliere, lista elementi
+        uno.splice(1, 2); 
+        //primo valore della funzione indica l'elemento dal quale si parte a eliminare
+        //secondo valore della funzione indica quanti elementi vanno eliminati 
+        console.log(uno);
+        //aggiungere elementi con splice
+        uno.splice(1, 0, 'stringa1', 'stringa2');
+        //al secondo valore si inserisce 0 per non cancellare niente
+        //poi con le virgole si inserirscono gli elementi da inserire
+        console.log(uno);
+
+
+        //sort con stringhe
+        let parole = ['mappa', 'canestro', 'mondo'];
+        console.log(parole.sort()); //non si può usare con numeri
+        let num = [3, 8, 1, 5];
+        console.log(num.sort(function(a, b){return a - b}));
+        console.log(num.sort(function(a, b){return b - a}));
+
+        //array multidimensionale
+        let multi = [['via roma', 45], ['corso impero, 67'], ['largo augusto', 12]];
+        console.log(multi[1][0]); //output: corso impero
+        console.log(multi[2][1]); //output: 12
+
+
+        //ESERCIZIO
+        //dati 2 array
+        let uomini = ['Marco', 'Nicola', 'Andrea', 'Stefano'];
+        let donne = ['Maria', 'Serena', 'Lara', 'Marta'];
+        //ottenere nuovo array persone = ("Andrea", "Lara",
+        //"Linda", "Luca", "Nicola", "Serena", "Stefano")
+        let persone = uomini.concat(donne);
+        //si può concatenare anche così
+        //let persone = uomini.concat(donne).sort;
+        let personeSorted = persone.sort();
+        //console.log(persone.sort());
+        //console.log(personeSorted);
+        personeSorted.splice(2, 3, 'Linda', 'Luca');
+        console.log(personeSorted);
+
+    </script>
+</body>
+</html>

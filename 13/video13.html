@@ -22,7 +22,7 @@
         }
     };
 
-    persona.presentarsi();
+    //persona.presentarsi();
 
     console.log(persona.nome);
     console.log(persona.eta);
@@ -39,7 +39,18 @@
     //Esercizio
     //creare nuovo oggetto gatto: razza, colore, nome, azione=output
     //output: ho un nuovo gatto di nome PIPPO, è un gatto grigio di razza siamese
+    let gatto = {
+        razza: 'siamese',
+        colore: 'grigio',
+        nome: 'pippo',
+        azione: function () {
+            document.getElementById('display').innerHTML = `ho 
+            un nuovo gatto di nome ${this.nome.toUpperCase()}, 
+            è un gatto ${this.colore} di razza ${this.razza}`;
+        }
+    };
 
+    gatto.azione();
     </script>
 </body>
 </html>
