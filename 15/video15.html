@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Introduzione alle funzioni in Javascript</title>
+</head>
+<body>
+    <h1>Titolo h1</h1>
+    <!-- <button id="btn">Cliccami</button> -->
+    <p id="display">Primo paragrafo</p>
+
+    <script>
+        
+        //le funzioni sono considerate oggetti di prima classe
+        //definizione funzione
+        // function nomeFunz (param1, param2) {
+        //     //azione da svolgere
+        //     return //un valore;
+        // } //la dichiarazione di una funzione non serve che sia chiusa con il ;
+        
+        // nomeFunz(arg1, arg2);
+
+        //esempio di una miaFunzione ed invocazione
+        function moltiplica (num1, num2) {
+            let molt = num1 * num2;
+            return molt;
+            // in maniera sintetica si può scrivere
+            //return num1 * num2;
+        }
+        let risultato = moltiplica (3, 6);
+        // console.log(risultato);
+        // risultato = moltiplica (5, 10);
+        // console.log(risultato);
+
+        //scope
+        let esterna = 5;
+        function visualizza () {
+            console.log(esterna);
+            let interna = 10;
+            console.log(interna);
+        }
+
+        visualizza();
+        console.log(esterna);
+        //console.log(interna);
+
+
+
+        //funzione senza return
+        function semplice() {
+            console.log('Interno');
+        }
+
+        console.log(semplice()); //output: undefined 
+        //poi alla riga successiva si ottiene output: Interno
+        console.log('Esterno', semplice());
+
+
+
+        //invocare una funzione da un'altra miaFunzione
+        function prima () {
+            console.log('Prima funz');
+        }
+        function seconda () {
+            console.log('Seconda funzione');
+            prima();
+        }
+
+        seconda();
+
+        //parametri di default
+        function moltiplica2 (parem1, parem2 = 5) {
+            console.log(parem1 * parem2);
+        }
+
+        moltiplica2(4, 7);
+        moltiplica2(9);
+        moltiplica2(); //output: Nan
+
+
+        //ESERCIZIO
+        //creare una stringa output con nome di persona passato come arg
+        //e calcola mesi e giorni basati sugli anni passati come arg
+        
+
+
+    </script>
+</body>
+</html>
