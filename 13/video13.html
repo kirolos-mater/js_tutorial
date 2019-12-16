@@ -11,10 +11,35 @@
     <script>
     
     //oggetto con proprietà (properties) e metodi (funzioni/azioni)
+    let persona = {
+        nome: 'Marco',
+        cognome: 'Rossi',
+        eta: 30,
+        eta2: 56,
+        presentarsi: function() {
+            document.getElementById('display').innerHTML =
+            `Salve io sono ${this.nome} ${this.cognome} ed ho ${this.eta} anni`;
+        }
+    };
 
+    persona.presentarsi();
+
+    console.log(persona.nome);
+    console.log(persona.eta);
+
+    let prop = 'cognome';
+    let prop2 = 'eta';
+    console.log(persona[prop2 + 2]);
+
+    persona.indirizzo = 'via Roma';
+    console.log(persona.indirizzo);
+
+    delete persona.indirizzo;
+    console.log(persona.indirizzo);
     //Esercizio
     //creare nuovo oggetto gatto: razza, colore, nome, azione=output
-    //
+    //output: ho un nuovo gatto di nome PIPPO, è un gatto grigio di razza siamese
+
     </script>
 </body>
 </html>
