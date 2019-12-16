@@ -81,6 +81,16 @@
         //creare una stringa output con nome di persona passato come arg
         //e calcola mesi e giorni basati sugli anni passati come arg
         
+        function calcolaMiaEta (nome, eta) {
+            // let mesi = eta * 12;
+            // let giorni = eta * 365;
+            /* possiamo anche non dichiarare le variabili
+            e inserire le funzioni direttamente dentro la stringa */
+            document.getElementById('display').innerHTML = `Salve
+            sono ${nome} ed ho ${eta} anni che corrisponde a: ${eta * 12} mesi
+            o a ${eta * 365} giorni`;
+        }
+        calcolaMiaEta('Marco', 33);
 
 
     </script>
