@@ -14,18 +14,67 @@
 
 
         //creare un oggetto data: new Date() ed estrarre dati/valori
-
+        let data = new Date();
+        console.log('Data: ', data);
+        console.log('Giorno: ', data.getDate());
+        console.log('Giorno della settimana: ', data.getDay()); 
+        /*javascript conta la domenica come il giorno 0 della settimana
+        è lo standard americano */
+        console.log('Mese: ', data.getMonth());
+        console.log('Anno: ', data.getFullYear());
+        console.log('Ora: ', data.getHours());
+        console.log('Minuti: ', data.getMinutes());
 
         //settare una data
+        data.setDate(4);
+        console.log('Nuovo giorno: ', data); /*output: Nuovo giorno:  
+        Wed Dec 04 2019 09:01:25 GMT+0100 
+        (Ora standard dell’Europa centrale) */
+        data.setFullYear(2000);
+        console.log('Nuovo anno: ', data); /*output: Nuovo anno:  
+        Mon Dec 04 2000 09:07:12 GMT+0100 
+        (Ora standard dell’Europa centrale) */
+        data.setFullYear(2000, 11, 15);
+        console.log('Nuovo giorno: ', data); /*output: Nuovo giorno:  
+        Fri Dec 15 2000 09:09:50 GMT+0100 
+        (Ora standard dell’Europa centrale)*/
 
 
         //timestamp
-
+        /*per convenzione si inizia a contare i millisecondi 
+        dalla mezzanotte del 1 gennaio 1970*/
+        let nuovaData = new Date(1234567890); //questo è un valore piccolo
+        console.log('Nuova data: ', nuovaData); /*output: Nuova data:  
+        Thu Jan 15 1970 07:56:07 GMT+0100 
+        (Ora standard dell’Europa centrale)*/
+        let questoMomento = Date.now();
+        console.log('Questo momento: ', questoMomento);
+        let newData = Date.parse('25 mar 2010');
+        console.log('Nuovo timestamp: ', newData);
 
         //esempi per creare Date
+        let dataDaStringa = new Date('25 mar 2010');
+        console.log('Data da Stringa: ', dataDaStringa); /*output: 
+        Data da Stringa:  Thu Mar 25 2010 00:00:00 GMT+0100 
+        (Ora standard dell’Europa centrale)*/
+        //se non si inserisce la data, di default viene inserita la mezzanotte
+        let dataDaStringaOra = new Date('25 mar 2010 12:34:45');
+        console.log('Data da Stringa: ', dataDaStringaOra); /*output: 
+        Data da Stringa:  Thu Mar 25 2010 12:34:45 GMT+0100 
+        (Ora standard dell’Europa centrale)*/
+        let dataConNumero = new Date(2015, 10, 23, 12, 34, 45);
+        console.log('Data con numeri: ', dataConNumero); /*output: 
+        Data con numeri:  Mon Nov 23 2015 12:34:45 GMT+0100 
+        (Ora standard dell’Europa centrale)*/
 
 
         //esempio di operazione
+        let dataDiAdesso = Date.now();
+        let fra3giorni = 1000 * 60 * 60 * 24 * 3; /* valore in millisecondi
+        di 3 giorni */
+        let totaleMillisecondi = dataDiAdesso + fra3giorni;
+        console.log('Fra 3 giorni: ', new Date(totaleMillisecondi));
+        /* esce come output la da tra 3 giorni */
 
 
     

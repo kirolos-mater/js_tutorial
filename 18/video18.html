@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Oggetto built-in RegExp</title>
+</head>
+<body>
+    <h1>Titolo h1</h1>
+    <!-- <button id="btn">Cliccami</button> -->
+    <p id="display">Ciao mondo, Ciao Pianeta</p>
+
+    <script>
+        /*un espressione regolare è un insieme di caratteri alfanumerici
+        che chiameremo pattern, usata per cercare corrispondenze dentro
+        a un testo */
+        //oggetto RegExp
+        let testo = document.getElementById('display').innerHTML;
+        /*per prendere la stringa del paragrafo*/
+        let pattern0 = /o/; /*espressione regolare creata usando il
+        metodo letterale per cercare la lettera 'o' */
+        let alterniva = new RegExp('o'); /*oggetto built-in di JavaScript */
+
+
+
+        //metodo test()
+        console.log(pattern0.test(testo)); /*se nel testo trova la 
+        lettera 'o', avrà output: true*/
+        console.log(/w/.test(testo)); /*non trova la lettera 'w', quindi
+        output: false */
+
+        
+        //flags: i g m     y: ES6
+        /*la flag 'i' sta per case insensitive */
+        console.log(/A/i.test(testo)); /*aggiungendo il flag per accettare
+        sia maiuscole che minuscole della lettera 'A' si ottiene
+        output: true */
+        console.log(/io/i.test(testo)); /*non ho nessuna 'i' seguita da 
+        una 'o', quindi output: false */
+
+        
+        
+        //metodo search()
+
+
+        //metodo exec()
+
+
+        //metodo match()
+
+
+        //metodo delle stringhe replace()
+
+
+        //metodo test() contro metodi startsWith() endsWith() includes() stringhe ES6
+    
+    </script>
+</body>
+</html>
