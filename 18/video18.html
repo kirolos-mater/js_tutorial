@@ -35,23 +35,88 @@
         output: true */
         console.log(/io/i.test(testo)); /*non ho nessuna 'i' seguita da 
         una 'o', quindi output: false */
-
-        
+        let pattern1 = new RegExp('[rst]', 'i'); /*le parentesi quadre 
+        significano che cercherà nel testo la lettera 'r' oppure la lettera
+        's' oppure la lettera 't' */
+        console.log(pattern1.test(testo)); //output: true
+        //adesso cerchiamo dei numeri
+        let pattern2 = new RegExp('[0-9]', 'i'); /* per cercare qualsiasi
+        numero compreso tra 0 e 9 */
+        console.log(pattern2.test(testo)); //output: false
+        //adesso usiamo la flag 'g', che sta per global
+        let pattern3 = /o/g;
+        console.log(pattern3.lastIndex); //output: 0 
+        /*usando la proprietà 'lastIndex' mi dice da dove Javascript
+        comincerà ad analizzare il mio testo */
+        console.log(pattern3.test(testo)); //output: true
+        console.log(pattern3.lastIndex); //output: 4
+        /*perché ha già trovato una lettera 'o' in posizione 3
+        e quindi cercherà le altre dalla ultima 'o' trovata */ 
+        console.log(pattern3.test(testo)); //output: true
+        console.log(pattern3.lastIndex); //output: 7
+        /*perché ha già trovato una lettera 'o' in posizione 6
+        e quindi cercherà le altre dalla ultima 'o' trovata */ 
+        console.log(pattern3.test(testo)); //output: true
+        console.log(pattern3.lastIndex); //output: 10
+        /*perché ha già trovato una lettera 'o' in posizione 9
+        e quindi cercherà le altre dalla ultima 'o' trovata */
+        console.log(pattern3.test(testo)); //output: true
+        console.log(pattern3.lastIndex); //output: 16
+        /*perché ha già trovato una lettera 'o' in posizione 15
+        e quindi cercherà le altre dalla ultima 'o' trovata */
+        console.log(pattern3.test(testo)); //output: false
+        /*abbiamo finito le 'o'*/
+        console.log(''); //è un semplice spazio
         
         //metodo search()
-
+        /*invece di ritornarmi 'true' or 'false', mi ritorna l'incdice */
+        console.log(testo.search(/o/)); //output: 3
+        console.log(testo.search(/c/i)); //output: 0
+        console.log(''); //è un semplice spazio
 
         //metodo exec()
+        /*invece di ritornarmi un booleano o un indice, mi ritorna un 
+        oggetto*/
+        console.log(/mon/.exec(testo)); /*output: ["mon", index: 5, 
+        input: "Ciao mondo, Ciao Pianeta", groups: undefined]*/
+        console.log(/won/.exec(testo)); //output: null
+
 
 
         //metodo match()
+        console.log(testo.match(/mon/)); /*senza la flag 'g', 'match' 
+        funziona esattamente come 'exec' */
+        console.log(testo.match(/o/g)); /*output: ["o", "o", "o", "o"]
+        0: "o"
+        1: "o"
+        2: "o"
+        3: "o"
+        length: 4
+        __proto__: Array(0)*/
+        //questo è un array con le volte in cui il pattern è stato trovato
+        console.log('');
 
 
         //metodo delle stringhe replace()
-
+        /* non è un metodo dell'oggetto RegExp, ma dell'oggetto stringa,
+        ma può essere usato assieme alle espresssioni regolari */
+        let newTesto = testo.replace('mo', 'La'); /* cerco le lettere
+        del primo pattern e le rimpiazzo con le lettere del secondo */
+        console.log(newTesto); //output: Ciao Lando, Ciao Pianeta
+        let newTesto1 = testo.replace(/pia/i, 'mo');
+        console.log(newTesto1); //output: Ciao mondo, Ciao moneta
 
         //metodo test() contro metodi startsWith() endsWith() includes() stringhe ES6
-    
+        /* questi sono metodi dell'oggetto stringa */
+        let stringa = 'tavolo';
+        console.log(/^tav/.test(stringa)); //output: true
+        console.log(stringa.startsWith('tav')); //output: true
+        console.log(/olo$/.test(stringa)); //output: true
+        console.log(stringa.endsWith('olo')); //output: true
+        console.log(/vo/.test(stringa)); //output: true
+        console.log(stringa.includes('vo')); //output: true
+
+
     </script>
 </body>
 </html>
