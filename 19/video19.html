@@ -13,21 +13,95 @@
         //operatori e valori booleani - sezione 2
 
         //sintassi
+        // if(espressione){
+        //     //codice
+        // } else if (espressione 2) {
+        //     //codice in caso di espressione 2
+        // } else if (espressione 3) {
+        //     //codice in caso di espressione 3
+        //} else {
+        //     //codice in caso di false
+        //}
 
         //if (se)
+        // let numero = 6;
+        // if(numero < 4) {
+        //     console.log('Codice......');
+        // } else {
+        //     console.log('Codice else.....');
+        // }
+
+
 
 
         //switch
         //sintassi
+        // switch(espressione) {
+        //     case 1:
+        //         //blocco codice
+        //         break;
+        //     case 2:
+        //         //blocco codice
+        //         break;
+        //     case 3:
+        //         //blocco codice
+        //         break;
+        //     default:
+        //         //codice default
+        // }
+        
+        // let num = prompt('Inserire numero');
+        // /*attento che uscirà sempre il valore default, perché il prompt
+        // interpreta tutto in stringhe, quindi convertiamo tutto in 
+        // stringhe */
+        // switch(num) {
+        //     case '1':
+        //     case '2':
+        //     case '3':
+        //     case '5':
+        //     case '7':
+        //         console.log('Numero primo');
+        //         break;
+        //     case '9':
+        //         console.log('Numero dispari');
+        //         break;
+        //     default:
+        //         console.log('Numero pari');
+        // }
+
 
 
         //operatore ternario
         //condizione ? se vero : se false;
+        // let stringa = 5 > 6 ? 'vero' : 'falso';
+        // console.log(stringa);
+
 
 
         //esercizio
         /* far inserire un numero intero ad un utente e dire se è 
         pari/dispari e negativo/positivo/0 */
+        /* stai attento che lo switch non converte le stringhe in numeri */
+        let num = prompt('Inserire numero intero');
+        let ris = '';
+        if (num > 0) {
+            ris += 'Numero positivo';
+        } else if (num < 0) {
+            ris += 'Numero negativo';
+        } else {
+            ris += 'Numero zero';
+        }
+
+        ris += num % 2 ? ' ed e\' dispari' : ' ed e\' pari'; /* guarda i 
+        booleani: 1 è resto in caso non sia pari, ma è booleano vero,
+        0 è resto in caso sia pari, ma è booleano falso */
+        console.log(ris);
+
+
+        
+
+
+
 
     </script>
 </body>
