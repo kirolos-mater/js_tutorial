@@ -29,26 +29,78 @@
         // }
         // tabella += '</table>';
         // document.getElementById('display').innerHTML = tabella;
-        let arr = ['primo', 'secondo', 'terzo'];
-        for (let i = 0; i < 10; i++) {
-            if (i === 6) {
-                continue;
-            }
-            console.log('Iterazione: ' + i);
-        }
+        // let arr = ['primo', 'secondo', 'terzo'];
+        // for (let i = 0; i < 10; i++) {
+        //     if (i === 6) {
+        //         continue;
+        //     }
+        //     console.log('Iterazione: ' + i);
+        // }
+        /*con foreach non si può usare 'break' o 'continue', perché
+        si tratta di una funzione */
 
 
 
 
         //for...in (ciclare oggetti)
+        // let obj = {
+        //     a: 6,
+        //     b: 'stringa1',
+        //     c: true
+        // };
+        // console.log('b' in obj); //output: true
+        // /* l'operatore 'in' ritorna un booleano */
+        // for (let prop in obj) {
+        //     console.log('Proprieta\': ' + prop + ' e valore: ' + obj[prop]);
+        // }
+        /* output: Proprieta': a e valore: 6
+        Proprieta': b e valore: stringa1
+        Proprieta': c e valore: true */
 
 
         //for...of ES6 (ciclare oggetti e array)
+        // let arr = ['primo', 'secondo', 'terzo'];
+        // for (let elem of arr) {
+        //     console.log('Elemento: ' + elem);
+        // } /* output: Elemento: primo
+        // Elemento: secondo
+        // Elemento: terzo */
+
+        // //per estrarre anche l'indice si usa la funzione 'entries'
+        // for (let [index, elem] of arr.entries()) {
+        //     console.log('Elemento: ' + elem + ' e indice: ' + index);
+        // }
+        /*output: Elemento: primo e indice: 0
+        Elemento: secondo e indice: 1
+        Elemento: terzo e indice: 2 */
+        let obj = {
+            a: 6,
+            b: 'stringa1',
+            c: true
+        };
+        for (let [index, elem] of Object.entries(obj)) {
+            console.log('Elemento: ' + elem + ' e indice: ' + index);
+        } /*output: Elemento: 6 e indice: a
+        Elemento: stringa1 e indice: b
+        Elemento: true e indice: c*/
+
+
+
+
+
+
+
 
 
         //esercizio
         /*visualizzare su pagina countdown 10 - 0 e su console 
         conteggiato 0 - 10*/
+        let display = '';
+        for (let i = 0; i<=10; i++) {
+            display += `Valore: ${10 - i}<br>`;
+            console.log('Valore: ' + i);
+        }
+        document.getElementById('display').innerHTML = display;
 
 
     
