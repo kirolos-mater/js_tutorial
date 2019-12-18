@@ -10,27 +10,50 @@
 
     <script>
     
-        //Funzioni sono oggetti
+        //Funzioni sono oggetti di prima classe
+        function prima () {};
+        console.log(typeof prima),
+        console.log(prima instanceof Object); //output: true
+        /* effettivamente è un oggetto */
+
 
         //Tipi di funzione:
         //declaration
+        function nomeFunzione () {};
+        nomeFunzione ();
+
 
 
         //expression
+        let variabile = function () {};
+        variabile ();
+
 
 
         //arrow
+        /* introdotte con ES6 */
+        // () => {};
 
 
         //method
+        /* una funzione può essere un metodo di un oggetto */
+        let oggetto = {
+            prop: function () {}
+        };
+        oggetto.prop ();
 
 
         //constructor
+        // let esempio = new Function (console.log('ciao mondo'));
+
+
 
         //IIFE
+        (function () {console.log('ciao mondo')}) () //output: ciao mondo
+        /* questa funzione si autoinvoca durante la dichiarazione */
 
 
-        
+
     </script>
 </body>
 </html>
