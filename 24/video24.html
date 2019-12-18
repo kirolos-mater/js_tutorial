@@ -14,14 +14,58 @@
 
 
         //Parametri passati per valore
+        let num = 10;
+        function prima (x) {
+            x = x - 5;
+            console.log(x);
+        }
+        prima(num); //output: 5
+        /* x assume il valore di 'num', viene elaboarta e poi moostrata */
+        console.log(num); //output: 10
+        /* 'num' non viene modificata */
 
 
         //operatore rest
+        /* l'operatore 'rest' viene usato quando non si sa quanti
+        saranno gli argomenti della funzione.
+        La sua rappresentazione grafica è '...' che è identica
+        a quella dell'operatore 'spread'. 
+        La differenza sta nel fatto che l'operatore 'rest' può 
+        essere usato solo all'interno della funzione.
+        Quindi l'operatore 'rest' raggruppa tutti gli argomenti 
+        in eccesso e li compatta dentro a un array  */
+        function seconda (x, w, z,...y) {
+            console.log(Array.isArray(y)); //output: true
+            console.log(x); //output: 10
+            console.log(y); /* il suo output dipende da quanti
+            valori definiti si inseriscono prima della 'y' */ 
+        }
+        seconda(10, 20, 30, 40); 
+        seconda(10, 20, 30, 40, 50, 60, 70);
+        /* invocando la funzione senza input verrà mostrato 
+        il valore di default  */
 
         
         //callback
-
+        /* sono funzioni passate come parametri, 
+        vengono utilizzate quando si ha a che fare con 
+        codice che lavora in maniera asincrona,
+        ad esempio dati che vengono inviata dal server
+        che ci mettono del tempo ad essere ricevuti e
+        javascript instanto può elaborare altri codici.
+        Fino al ES5 erano usate molto, dopo il ES6 sono usate di meno */
+        function test (x) {
+            return x * x;
+        }
+        console.log(test(10));
+        console.log(test);
+        function principale (x, callback) {
+            console.log('Valore di x: ', x);
+            console.log(callback(50));
+        }
+        principale (5, test);
         
+
 
     </script>
 </body>
