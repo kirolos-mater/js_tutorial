@@ -24,16 +24,44 @@
         // catch (err) {
         //     //tipo di errore
         // }
-        try {
-            console.log(x);
-        }
-        catch (err) {
-            console.log('Errore');
-        }
+
+        //esempio 1
+        // try {
+        //     console.log(x);
+        // }
+        // catch (err) {
+        //     console.log('Errore', err);
+        // }
+        // console.log('Ciao mondo');
+
+        //esempio 2
+        // try {
+        //     console.log('Codice try');
+        // }
+        // catch (err) {
+        //     console.log('Errore', err);
+        // }
+        // finally {
+        //     //il codice dentro al 'finally' viene eseguito in ogni caso
+        //     console.log('Codice finally');
+        // } 
+
 
 
 
         //throw un errore (definire un proprio errore)
+        try {
+            let num = prompt ('Inserire numero');
+
+            if (!isNaN(num)) {
+                console.log('Il tuo numero e\' ', num);
+            } else {
+                throw 'Errore!!!, non hai inserito un numero';
+            }
+        }
+        catch (err) {
+            console.log('Ho visto un errore', err);
+        }
     
     
     
