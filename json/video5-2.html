@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Introduzione a JSON</title>
+</head>
+<body>
+    <h1 id="titolo">Titolo h1</h1>
+    <div>
+        <div id="numUtenti"></div>
+        <div id="nomeUtenti"></div>
+    </div>
+    <p id="display">Primo paragrafo</p>
+    <footer id="footer"></footer>
+
+    <script>
+    
+    //JSON: JavaScript Object Notation
+
+    function caricaFile () {
+        const xhttp = new XMLHttpRequest ();
+
+        xhttp.open('GET', 'esempio.json', true);
+        xhttp.send();
+
+        xhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                console.log(this.responseText);
+            }
+        }
+    }
+    //caricaFile()
+
+    </script>
+</body>
+</html>
