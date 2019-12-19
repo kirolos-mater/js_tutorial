@@ -10,6 +10,20 @@
     <script>
     
     //HTML DOM (Document Object Model)
+    /* quando un browser apre un file HTML, automaticamente crea un 
+    oggetto DOM con attributi e metodi.
+    tutto il file è l'oggetto all'interno dei quali ci sono i nodi, 
+    che sono anche essi oggetti 
+    'head' e 'body' sono considerati oggetti fratelli figli di 'html' 
+    'title' è figlio di 'head' e ha un nodo interno che sarebbe il testo.
+    in questo caso l'oggetto 'body' ha figli 'h1', 'p', 'script'*/
+    document.getElementById('diplay').innerHTML = 'nuovo testo';
+    /* qui ho evocato l'oggetto padre che sarebbe 'document' e
+    uso un metodo per ritornare un elemento.
+    'innerHTML' è una proprietà dell'elemento invocato che indica
+    il suo contenuto*/
+
+    
     
     </script>
 </body>
