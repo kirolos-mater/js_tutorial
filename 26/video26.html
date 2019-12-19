@@ -10,11 +10,24 @@
 
     <script>
         // ES6 classi
-        function Auto (marca, colore) {
-            this.marca = marca;
-            this.colore = colore;
-            this.descrizione = function () {
-                console.log(this.marca + ' ' + this.colore);
+        // function Auto (marca, colore) {
+        //     this.marca = marca;
+        //     this.colore = colore;
+        //     this.descrizione = function () {
+        //         console.log(this.marca + ' ' + this.colore);
+        //     }
+        // }
+        
+        /* questa è una sintassi differente per indicare la stessa cosa */
+        class Auto {
+            constructor(marca, colore) {
+                /* dentro il costruttore si dichiarano le proprietà */
+                this.marca = marca;
+                this.colore = colore;
+            }
+            /* fuori dal costruttore si dichiarano i metodi */
+            descrizione () {
+                console.log (this.marca + ' ' + this.colore);
             }
         }
 
