@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Approfondire gli oggetti</title>
+</head>
+<body>
+    <h1>Titolo h1</h1>
+    <!-- <button id="btn">Cliccami</button> -->
+    <p id="display">Primo paragrafo</p>
+
+    <script>
+        //oggetto letterale
+        let panda = {
+            marca: 'Fiat',
+            colore: 'rossa',
+            descrizione: function () {
+                console.log(this.marca + ' ' + this.colore);
+            }
+        };
+        panda.descrizione ();
+        panda.ruote = 4;
+        console.log(panda.ruote);
+
+
+
+        //costruttore e prototipi
+        function Auto (marca, colore) {
+            this.marca = marca;
+            this.colore = colore;
+            this.descrizione = function () {
+                console.log(this.marca + ' ' + this.colore);
+            }
+        }
+
+        const polo = new Auto ('Vw', 'blu');
+        console.log(polo.marca);
+        console.log(polo.colore);
+        polo.descrizione ();
+
+        const astra = new Auto ('Opel', 'verde');
+        console.log(polo.marca);
+        console.log(polo.colore);
+        astra.descrizione ();
+
+        console.log(polo instanceof Auto);
+
+        Auto.prototype.chilometraggio = 100;
+        console.log(polo.chilometraggio);
+        console.log(astra.chilometraggio);
+
+        Auto.prototype.tagliando = function (kmFuturi) {
+            console.log(this.chilometraggio + kmFuturi);
+        }
+
+        polo.tagliando (500);
+        astra.tagliando (1500);
+
+
+
+
+    
+    
+    </script>
+</body>
+</html>

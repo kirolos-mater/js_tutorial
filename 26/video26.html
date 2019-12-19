@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Le classi in JavaScript</title>
+</head>
+<body>
+    <h1>Titolo h1</h1>
+    <!-- <button id="btn">Cliccami</button> -->
+    <p id="display">Primo paragrafo</p>
+
+    <script>
+        // ES6 classi
+        function Auto (marca, colore) {
+            this.marca = marca;
+            this.colore = colore;
+            this.descrizione = function () {
+                console.log(this.marca + ' ' + this.colore);
+            }
+        }
+
+        const polo = new Auto ('Vw', 'blu');
+        console.log(polo.marca);
+        console.log(polo.colore);
+        polo.descrizione ();
+
+    
+    
+    </script>
+</body>
+</html>
