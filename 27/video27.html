@@ -13,7 +13,30 @@
         // ES6 classi
         //ereditarietà
 
-        
+        class Veicolo {
+            constructor (ruote, motore) {
+                this.ruote = ruote;
+                this.motore = motore;
+
+            }
+            descrizioneVeicolo () {
+                return `Questo è un veicolo ${this.motore ? ' a motore'
+                : ' a pedali' } ed ha ${this.ruote} ruote`;
+            }
+        }
+
+        // const veicolo1 = new Veicolo (4, true);
+        // console.log(veicolo1.descrizioneVeicolo ());
+        class Auto extends Veicolo {
+            constructor (ruote, motore, marca, colore) {
+                super (ruote, motore);
+                this.marca = marca;
+                this.colore = colore;
+            }
+        }
+
+
+
     
     
     
