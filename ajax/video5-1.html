@@ -10,6 +10,31 @@
 
     <script>
         //AJAX = Asynchronous Javascript and XML
+        function caricaFile () {
+            /* useremo oggetti built-in di javascript */
+            const xhttp = new XMLHttpRequest ();
+
+            xttp.open ('GET', 'testo.txt', true);
+            /* questa funzione apre la richiesta al server
+            il primo argomento è il tipo di richiesta 
+            che può essere 'GET' oppure 'POST'
+            il secondo argomento è un file
+            il terzo argomento è un booleano che verifica la connessione
+            asincrona */
+            xttp.send (); /* questa serve per mandare la richiesta */
+
+            xttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200)
+                /* per verificare che il server stia ricevendo la
+                richiesta, 'this.readyState' può assumere 4 valori:
+                0 indica che la richiesta non è stata ancora inizializzata
+                1 indica che la connessione con il server è stata abilitata
+                2 indica che il server ha ricevuto la richiesta
+                3 indica che il server sta processando la richiesta
+                4 indica che il server ha finito di processare la richiesta
+                e mi ha inviato indietro la risposta */
+            }
+        }
         
     
     
