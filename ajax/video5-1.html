@@ -5,7 +5,7 @@
 </head>
 <body>
     <h1>Titolo h1</h1>
-    <!-- <button id="btn">Cliccami</button> -->
+    <button id="btn" onclick="caricaFile()">Cliccami</button>
     <p id="display">Primo paragrafo</p>
 
     <script>
@@ -14,17 +14,19 @@
             /* useremo oggetti built-in di javascript */
             const xhttp = new XMLHttpRequest ();
 
-            xttp.open ('GET', 'testo.txt', true);
+            xhttp.open ('GET', 'testo.txt', true);
             /* questa funzione apre la richiesta al server
             il primo argomento è il tipo di richiesta 
             che può essere 'GET' oppure 'POST'
             il secondo argomento è un file
             il terzo argomento è un booleano che verifica la connessione
             asincrona */
-            xttp.send (); /* questa serve per mandare la richiesta */
+            xhttp.send (); /* questa serve per mandare la richiesta */
 
-            xttp.onreadystatechange = function () {
-                if (this.readyState === 4 && this.status === 200)
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    document.getElementById('display').innerHTML = this.responseText;
+                }
                 /* per verificare che il server stia ricevendo la
                 richiesta, 'this.readyState' può assumere 4 valori:
                 0 indica che la richiesta non è stata ancora inizializzata
@@ -32,7 +34,12 @@
                 2 indica che il server ha ricevuto la richiesta
                 3 indica che il server sta processando la richiesta
                 4 indica che il server ha finito di processare la richiesta
-                e mi ha inviato indietro la risposta */
+                e mi ha inviato indietro la risposta
+                
+                'this.status' è la risposta del server
+                200 indica che il server ha trovato la risposta e la sta inviando
+                404 indica che il server non ha trovato la risposta
+                */
             }
         }
         
