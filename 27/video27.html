@@ -33,7 +33,18 @@
                 this.marca = marca;
                 this.colore = colore;
             }
+            descrizioneAuto () {
+                console.log (`${super.descrizioneVeicolo ()},
+                in particolare è un auto ${this.marca} di colore 
+                ${this.colore}`);
+            }
         }
+        
+        const polo = new Auto (4, true, 'Vw', 'blu');
+        console.log(polo.marca);
+        console.log(polo.ruote);
+        polo.descrizioneAuto ();
+        console.log(polo.descrizioneVeicolo ());
 
 
 
