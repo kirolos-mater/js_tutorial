@@ -3,7 +3,7 @@
 <head>
     <title>Introduzione a JSON</title>
 </head>
-<body>
+<body onload="caricaFile()">
     <h1 id="titolo">Titolo h1</h1>
     <div>
         <div id="numUtenti"></div>
@@ -15,6 +15,10 @@
     <script>
     
     //JSON: JavaScript Object Notation
+    /* le proprietà non possono essere funzioni. 
+    i nomi delle proprietà vanno incluse nelle doppie virgolette 
+    a differenza del JavaScript che non le usa proprio.
+    l'ultima proprietà non deve avere la virgola */
 
     function caricaFile () {
         const xhttp = new XMLHttpRequest ();
@@ -24,11 +28,61 @@
 
         xhttp.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
-                console.log(this.responseText);
+                // console.log(JSON.parse(this.responseText));
+                convertiJson(this.responseText);
             }
         }
     }
-    //caricaFile()
+
+    function convertiJson (dati) {
+        const data = JSON.parse(dati);
+        document.getElementById('titolo').innerHTML = data.testo.titolo;
+        document.getElementById('display').innerHTML = data.testo.par;
+        document.getElementById('footer').innerHTML = data.testo.footer;
+
+        document.getElementById('numUtenti').innerHTML = data.utenti.length;
+        document.getElementById('nomeUtenti').innerHTML = data.utenti;
+    }
+
+    // caricaFile(); /* output non convertito in JavaScript: 
+    // {
+    //     "prop1": {
+    //         "prop-1": "stringa",
+    //         "prop-2": 100,
+    //         "prop-3": true
+    //     },
+    //     "prop2": [
+    //         "questo",
+    //         "è un array",
+    //         "di stringhe"
+    //     ]
+    // } 
+    // perché ci sono le doppie virgolette
+    // ora questo testo va convertito in JavaScript e si fa sostituendo
+    // 'this.responseText' con 'JSON.parse(this.responseText)'
+    // 'parse' si usa per ricevere dal server*/
+
+    // const obj = {
+    //     prop1: "stringa",
+    //     prop2: 200,
+    //     prop3: "stringa2",
+    //     prop4: 2000
+    // };
+    // console.log(JSON.stringify(obj, false, 4)); /* per inviare al server
+    // e convertire in JSON si usa 'stringify' 
+    // si aggiungono 2 argomenti oltre all'oggetto,
+    // nel secondo argomento si mette 'false' (spiegazione non disponibile ora)
+    // nel terzo argomento si mette il numero di spazi di indentazione
+    // output:
+    // {
+    //     "prop1": "stringa",
+    //     "prop2": 200,
+    //     "prop3": "stringa2",
+    //     "prop4": 2000
+    // } */
+
+    
+
 
     </script>
 </body>

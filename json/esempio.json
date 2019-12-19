@@ -1,12 +1,12 @@
 {
-    "prop1": {
-        "prop-1": "stringa",
-        "prop-2": 100,
-        "prop-3": true
+    "testo": {
+        "titolo": "Imparare ad usare JSON",
+        "par": "Lorem Ipsum",
+        "footer": "Questo è il footer"
     },
-    "prop2": [
-        "questo",
-        "è un array",
-        "di stringhe"
+    "utenti": [
+        "Marco",
+        " Simone",
+        " Stefano"
     ]
 }
