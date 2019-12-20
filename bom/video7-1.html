@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Cosa è il BOM</title>
+    <title>Cosa e' il BOM</title>
 </head>
 <body>
     <h1 id="titolo">Titolo h1</h1>
-    <div id="display">Io sono il "div"</div>
+    <div id="display" onmouseover="apri()">Io sono il "div"</div>
     <script>
         //Browser Object Model (BOM)
+        /* il DOM è il documento caricato nella pagina,
+        il BOM è tutta la finestra del browser, compresa la barra
+        degli indirizzi. 
+        Quindi il DOM è una proprietà di BOM*/
+        console.log(window); //output: |> Window
+        /* è un output con tante proprietà */
+        // window.document.getElementById("display")
+
+        console.log(window.innerWidth); //output: 403
+        console.log(window.innerHeight); //output: 967
+        /* le misure cambiano in base a come espandiamo la finestra */
+
+        function apri() {
+            window.open('video7-1bis.html', '_blank', 
+            'status=no,width=200,height=200');
+        }
+
     
     </script>
 </body>
