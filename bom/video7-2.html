@@ -5,10 +5,17 @@
 </head>
 <body>
     <h1 id="titolo">Titolo h1</h1>
-    <div id="display">Io sono il "div"</div>
+    <div id="display" onmouseover="linka()">Io sono il "div"</div>
     <script>
+        console.log(location.href);
+        console.log(location.hostname);
+        console.log(location.pathname);
 
-        
+        function linka() {
+            // location.assign('https://www.google.com');
+            location.assign("video7-2bis.html");
+        }
+
     </script>
 </body>
 </html>
