@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Document</title>
+    <title>Titolo di pagina</title>
 </head>
 <body>
+    <h1 id="titolo">Titolo Seconda Pagina</h1>
+    <button onclick="ritorna()">Cliccami</button>
+
+    <script>
+        //si deve usare l'oggetto HISTORY
+        function ritorna() {
+            history.back();
+            // window.history.back(); 
+            /* è lo stesso comando, si può anche omettere 'window' */
+        }
     
+    </script>
 </body>
 </html>

@@ -7,14 +7,29 @@
     <h1 id="titolo">Titolo h1</h1>
     <div id="display" onmouseover="linka()">Io sono il "div"</div>
     <script>
-        console.log(location.href);
-        console.log(location.hostname);
-        console.log(location.pathname);
+        console.log(location.href); /* output: 
+        file:///C:/xampp/htdocs/js_tutorial/bom/video7-2.html */
+        console.log(location.hostname); /* output: localhost 
+        //se si accede dal server */
+        console.log(location.pathname); /* output: 
+        /C:/xampp/htdocs/js_tutorial/bom/video7-2.html */
+
 
         function linka() {
             // location.assign('https://www.google.com');
             location.assign("video7-2bis.html");
         }
+
+        /* l'oggetto Navigator non è affidabile, 
+        serve a rilevare il browser utilizzato */
+        console.log(navigator.cookieEnabled); /* output: true */
+        console.log(navigator.appName); /* output: Netscape  
+        //sarebbe il browser Chrome di Google */
+        console.log(navigator.appVersion); /* output: 
+        5.0 (Windows NT 10.0; Win64; x64) 
+        AppleWebKit/537.36 (KHTML, like Gecko) 
+        Chrome/79.0.3945.88 Safari/537.36 */
+        console.log(navigator.language); /* output: en-US */
 
     </script>
 </body>
