@@ -3,12 +3,17 @@
 <head>
     <title>Titolo di pagina</title>
 </head>
-<body>
+<body onresize="resize()">
     <h1 id="titolo">Nuova finestra</h1>
     <button onclick="chiudi()">Cliccami</button>
     <script>
         function chiudi() {
             window.close();
+        }
+        function resize() {
+            document.getElementById("titolo").
+            innerHTML = "Nuove misure " + window.innerWidth + ' ' + 
+            window.innerHeight;
         }
     
     
