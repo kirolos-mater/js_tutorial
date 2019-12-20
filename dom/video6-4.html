@@ -5,9 +5,36 @@
 </head>
 <body>
     <h1 id="titolo">Titolo h1</h1>
-    <div id="display">Io sono il div</div>
+    <!-- Primo metodo -->
+    <!-- <div id="display" 
+    onmouseover="mouseStaPassando()" 
+    onmouseout="mousePassato()">Io sono il div</div> -->
+    <div id="display">Io sono il "div"</div>
     <script>
+        /* JavaScript è un linguaggio guidato dagli eventi.
+        Un evento è un processo che fa innescare un determinato
+        comportamento a JavaScript */
     
+        function mouseStaPassando() {
+            document.getElementById("titolo").
+            innerHTML = "Il mouse sta passando";
+        }
+        function mousePassato() {
+            document.getElementById("titolo").
+            innerHTML = "Il mouse e\' passato";
+        }
+
+        //secondo metodo
+        // document.getElementById("display").onmouseover = mouseStaPassando;
+        // document.getElementById("display").onmouseout = mousePassato;
+
+        //terzo metodo
+        document.getElementById("display").
+        addEventListener("mouseover", mouseStaPassando);
+        document.getElementById("display").
+        addEventListener("mouseout", mousePassato);
+        document.getElementById("display").
+        removeEventListener("mouseout", mousePassato);
     
     
     </script>
