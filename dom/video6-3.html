@@ -7,7 +7,31 @@
     <h1 id="titolo">Titolo h1</h1>
     <div id="display"></div>
     <script>
-    
+        let figlio = document.getElementById("display");
+        figlio.innerHTML = "<p>testo del par figlio</p>";
+        /* per creare tanti paragrafi si usa questa metodologia */
+        let p = document.createElement("p");
+        let testo = document.createTextNode("Testo del par p");
+        p.appendChild(testo);
+        document.getElementById("display").appendChild(p);
+        let p1 = document.createElement("p");
+        let testo1 = document.createTextNode("Testo del par p1");
+        p1.appendChild(testo1);
+        document.getElementById("display").appendChild(p1);
+        let nodeList = document.querySelectorAll("p");
+        console.log(nodeList); /* output: NodeList(3) [p, p, p]
+        length: 3
+        0: p
+        1: p
+        2: p
+        __proto__: NodeList */
+
+        let child = document.getElementById("display").firstChild;
+        console.log(child.nodeName); //output: P
+        console.log(child.firstChild.nodeValue); //output: testo del par figlio
+
+        let lastChild = document.getElementById("display").lastChild;
+        console.log(lastChild.firstChild.nodeValue); //output: Testo del par p1
     
     </script>
 </body>
