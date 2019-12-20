@@ -25,8 +25,43 @@
     document.scripts
     document.title
      */
+    // document.title = "Nuovo Titolo";
+    // document.body.innerHTML = "Nuovo contenuto body";
+    // console.log(document.head);
 
-     //metodi più comuni
+
+    //metodi più comuni
+    let tagName = document.getElementsByTagName ('div');
+    console.log (tagName); /* HTMLCollection(2) [div.test1, div.test1]
+    length: 2
+    0: div.test1
+    1: div.test1
+    __proto__: HTMLCollection */
+    tagName [1] . innerHTML = "nuovo testo";
+    console.log(Array.isArray(tagName)); //output: false
+    tagName = Array.from(tagName); //metodo di ES6
+    console.log(Array.isArray(tagName)); //output: true
+    let className = document.getElementsByClassName("test1");
+    console.log(className); /* HTMLCollection(3) 
+    [div.test1, div.test1, p#display.test1, display: p#display.test1]
+    length: 3
+    0: div.test1
+    1: div.test1
+    2: p#display.test1
+    display: p#display.test1
+    __proto__: HTMLCollection */
+    let element = document.getElementById("display");
+    element.innerHTML = "Nuovo testo";
+    element.style.backgroundColor = "red";
+    element.setAttribute("dir", "rtl"); 
+    element.className = "red";
+    element.style.color = "yellow";
+    element.style.fontSize = "200%";
+
+
+
+
+
     </script>
 </body>
 </html>
