@@ -5,15 +5,37 @@
 </head>
 <body>
     <h1 id='titolo'>Titolo h1</h1>
-    <button id="display">Cliccami</button>
+    <button id="display" onclick="clearTimeout(timer),
+        clearInterval(intervallo)">Cliccami</button>
     <br>
     <br>
 
-    <div id='animazione'>DIV</div>
+    <div id='animazione' style="width: 150px; height: 150px;
+        background: red; position: relative;">DIV</div>
 
     <script>
     
-    
+        function saluta() {
+            console.log('Ciaooooooo');
+        }
+
+        let timer = window.setTimeout(saluta, 3000); /* 3000 sono millisecondi */
+
+        let intervallo = setInterval(function() {
+            console.log('Ciao mondo');
+        }, 2000); /* ripete la funzione ogni 2 secondi */
+
+        let y = 0;
+        function muoviDiv(){
+            if (y < 500) {
+                document.getElementById('animazione').style.left = y + 'px';
+                y += 5;
+            } else {
+                clearInterval(spostaDiv);
+            }
+        }
+        let spostaDiv = setInterval(muoviDiv, 50);
+
     
     </script>
 </body>

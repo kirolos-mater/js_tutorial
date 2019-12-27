@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Finestre pop-up</title>
+</head>
+<body onload="apri()">
+    
+    <h1 id="titolo">titolo h1</h1>
+    <button id="display" onclick="apri()">Cliccami</button>
+
+    <script>
+        // //alert
+        // function alert1() {
+        //     alert('Questo e\' un alert \n altro testo'); /* non puoi usare 
+        //     il tag <br> dentro un alert, ma \n */
+        // }
+        
+
+        // //prompt
+        // function apri() {
+        //     let valore = prompt('Inserire un valore');
+        //     console.log(typeof valore);
+        //     console.log(valore);
+        // } /* per chiedere all'utente di inserire dati */
+
+        //confirm
+        function apri () {
+            let valore = confirm('Sei maggiorenne');
+            console.log(typeof valore);
+            console.log(valore);
+        }
+    
+    
+    
+    
+    </script>
+</body>
+</html>
