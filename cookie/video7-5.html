@@ -3,12 +3,45 @@
 <head>
     <title>I cookie in JavaScript</title>
 </head>
-<body>
+<body onload="caricaCookie()">
         <h1 id="titolo">titolo h1</h1>
-        <button id="display">Cliccami</button>
+        <button id="display" onclick="caricaCookie()">Cliccami</button>
         <script>
-        
-        // "colore=red; expires=Thu, 20 Dec 2020 00:00:00 UTC; path=/;"
+            /* questo è un esempio di cookie */
+            // "colore=red; expires=Thu, 20 Dec 2020 00:00:00 UTC; path=/;"
+
+            function caricaCookie() {
+                /* controllare l'esistenza dei cookie presenti nella pagina */
+                let cookie = document.cookie;
+                if(/colore/.test) { /* per cercare la parola 'colore' */
+                    let cookieColore = document.cookie.spli(';'); /* per dividere
+                    la stringa del cookie in parti, infatti questo è un controllo
+                    che trova il ';' */
+                    for(const elem of cookieColore) {
+                        if(/colore/.test(elem)) {
+                            let cookieColore = document.cookie.spli('='); /* per
+                            dividere l'elemento dal valore */
+                        }
+                    }
+                    document.body.style.backgroundColor = cookieColore[1]; /* il
+                    secondo elemento di questo array è il valore del colore */
+                } else {
+                    let colore = prompt('inserire un colore in inglese');
+                    let data = new Date();
+                    data.setTime(data.getTime() + (1000 * 60 * 60 * 24 * 30)); /* per
+                    impostare la scadenza del cookie tra 30 giorni */
+                    let scdenza = 'expires= ' + data.toUTCString(); /* conversione
+                    in stringa */
+                    document.cookie = `colore = ${colore}; ${scadenza}; path=/`;
+                    location.reload();
+                }
+            }
+
+            function cancellaCookie() {
+                /* per cancellare un cookie si deve assegnare una data
+                di scadenza passata */
+                document.cookie = 'colore=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/';
+            }
         
         
         </script>
