@@ -6,7 +6,7 @@
 <body>
     
     <h1 id='titolo'>titolo h1</h1>
-    <button id="display">Cliccami</button>
+    <button id="display" onclick="cancellaColore()">Cliccami</button>
     <script>
     
         //web storage objects
@@ -15,6 +15,19 @@
 
         //windows.localStorage
         /* non scade mai */
+        // let coloreStorage = localStorage.getItem('colore');
+        // if(!coloreStorage) {
+        //     let colore = prompt('inserire un colore');
+        //     localStorage.setItem('colore', colore);
+        //     document.body.style.backgroundColor = colore;
+        // } else {
+        //     document.body.style.backgroundColor = coloreStorage;
+        // }
+
+        // function cancellaColore() {
+        //     localStorage.setItem('colore', '');
+        //     location.reload();
+        // }
 
 
 
