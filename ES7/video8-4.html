@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Le funzioni asincrone in JavaScript</title>
+</head>
+<body onload="convertiJson()">
+    <h1 id="titolo">titolo h1</h1>
+    <p id="display">primo paragrafo</p>
+    <script>
+        function caricaFile(coin) {
+            // const xhttp = new XMLHttpRequest();
+
+            // xhttp.open('GET', 'https://api.coinmarketcap.com/v1/ticker/bitcoin/', true);
+            // xhttp.send();
+
+            // xhttp.onreadystatechange = function () {
+            //     if (this.readyState === 4 && this.status === 200) {
+            //         // console.log(JSON.parse(this.responseText));
+            //         convertiJson(this.responseText);
+            //     }
+            // }
+            return new Promise((resolve, reject) => {
+                const xhttp = new XMLHttpRequest();
+
+                xhttp.open('GET', `https://api.coinmarketcap.com/v1/ticker/${coin}/`, true);
+                xhttp.send();
+
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState === 4 && this.status === 200) {
+                        // console.log(JSON.parse(this.responseText));
+                        // convertiJson(this.responseText);
+                        resolve(this.responseText);
+                    } else if (this.status == 404) {
+                        reject(new Error(this.responseText));
+                    }
+                }
+                xhttp.onerror = function () {
+                    reject(new Error(this.responseText));
+                }
+            });
+        }
+
+
+        /* per convertire una funzione in asincrona
+        si usa il prefisso 'async' */
+        // async function convertiJson(dati) {
+        //     // const data = JSON.parse(dati);
+        //     // console.log(data);
+        //     // document.getElementById('titolo').innerHTML = data.testo.titolo;
+        //     // document.getElementById('display').innerHTML = data.testo.par;
+        //     // document.getElementById('footer').innerHTML = data.testo.footer;
+
+        //     // document.getElementById('numUtenti').innerHTML = data.utenti.length;
+        //     // document.getElementById('nomeUtenti').innerHTML = data.utenti;
+
+        //     try {
+        //         /* bisogna dichiarare una costante 
+        //         che ha come valore l'attesa della funzione
+        //         di caricamento*/
+        //         const btc = await caricaFile('bitcoin')
+        //         /* chiamate in serie */
+        //         let dati = JSON.parse(btc);
+        //         console.log(dati);
+        //         const eth = await caricaFile('ethereum');
+        //         dati = JSON.parse(eth);
+        //         console.log(dati);
+        //         const xrp = await caricaFile('ripple');
+        //         dati = JSON.parse(xrp);
+        //         console.log(dati);
+        //         /* il catch non serve più, ma in
+        //         caso di 'try' va messo fuori dal
+        //         blocco */
+        //     } catch(err) {
+        //         console.log(err);
+        //     }
+        // }
+
+        // async function convertiJson(dati) {
+        //     // const data = JSON.parse(dati);
+        //     // console.log(data);
+        //     // document.getElementById('titolo').innerHTML = data.testo.titolo;
+        //     // document.getElementById('display').innerHTML = data.testo.par;
+        //     // document.getElementById('footer').innerHTML = data.testo.footer;
+
+        //     // document.getElementById('numUtenti').innerHTML = data.utenti.length;
+        //     // document.getElementById('nomeUtenti').innerHTML = data.utenti;
+        //     try {
+        //         const tutte = await Promise.all([
+        //             /* chiamate in parallelo */
+        //             caricaFile('bitcoin'),
+        //             caricaFile('ethereum'),
+        //             caricaFile('ripple')
+        //         ])
+        //         /* non serve più il 'then' */
+        //         console.log(tutte[0]);
+        //         console.log(tutte[1]);
+        //         console.log(tutte[2]);
+        //         /* il catch non serve più, ma in
+        //         caso di 'try' va messo fuori dal
+        //         blocco */
+        //     } catch(err) {
+        //         console.log(err);
+        //     }
+        // }
+
+        async function convertiJson() {
+            /* mostra quella che viene caricata prima */
+            try {
+                const vinc = await Promise.race([
+                    caricaFile('bitcoin'),
+                    caricaFile('ethereum'),
+                    caricaFile('ripple')
+                ]);
+                console.log(vinc);
+                /* il catch non serve più, ma in
+                caso di 'try' va messo fuori dal
+                blocco */
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+
+    </script>
+</body>
+</html>
