@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Approfondire le Promise</title>
+</head>
+<body onload="convertiJson()">
+    <h1 id="titolo">titolo h1</h1>
+    <p id="display">primo paragrafo</p>
+    <script>
+            function caricaFile(coin) {
+                // const xhttp = new XMLHttpRequest();
+
+                // xhttp.open('GET', 'https://api.coinmarketcap.com/v1/ticker/bitcoin/', true);
+                // xhttp.send();
+
+                // xhttp.onreadystatechange = function () {
+                //     if (this.readyState === 4 && this.status === 200) {
+                //         // console.log(JSON.parse(this.responseText));
+                //         convertiJson(this.responseText);
+                //     }
+                // }
+                return new Promise((resolve, reject) => {
+                    const xhttp = new XMLHttpRequest();
+
+                    xhttp.open('GET', `https://api.coinmarketcap.com/v1/ticker/${coin}/`, true);
+                    xhttp.send();
+
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState === 4 && this.status === 200) {
+                            // console.log(JSON.parse(this.responseText));
+                            // convertiJson(this.responseText);
+                            resolve(this.responseText);
+                        } else if (this.status == 404) {
+                            reject(new Error(this.responseText));
+                        }
+                    }
+                    xhttp.onerror = function () {
+                        reject(new Error(this.responseText));
+                    }
+                });
+            }
+
+            // function convertiJson(dati) {
+            //     // const data = JSON.parse(dati);
+            //     // console.log(data);
+            //     // document.getElementById('titolo').innerHTML = data.testo.titolo;
+            //     // document.getElementById('display').innerHTML = data.testo.par;
+            //     // document.getElementById('footer').innerHTML = data.testo.footer;
+
+            //     // document.getElementById('numUtenti').innerHTML = data.utenti.length;
+            //     // document.getElementById('nomeUtenti').innerHTML = data.utenti;
+            //     caricaFile('bitcoin')
+            //     /* chiamate in serie */
+            //     .then((res) => {
+            //         const dati = JSON.parse(res);
+            //         console.log(dati);
+            //         return caricaFile('ethereum');
+            //     }).then((res) => {
+            //         const dati = JSON.parse(res);
+            //         console.log(dati);
+            //         return caricaFile('ripple');
+            //     }).then((res) => {
+            //         const dati = JSON.parse(res);
+            //         console.log(dati);
+            //     }).catch((err) => {
+            //         console.log(err);
+            //     })
+            // }
+
+            // function convertiJson(dati) {
+            //     // const data = JSON.parse(dati);
+            //     // console.log(data);
+            //     // document.getElementById('titolo').innerHTML = data.testo.titolo;
+            //     // document.getElementById('display').innerHTML = data.testo.par;
+            //     // document.getElementById('footer').innerHTML = data.testo.footer;
+
+            //     // document.getElementById('numUtenti').innerHTML = data.utenti.length;
+            //     // document.getElementById('nomeUtenti').innerHTML = data.utenti;
+            //     Promise.all([
+            //         /* chiamate in parallelo */
+            //         caricaFile('bitcoin'),
+            //         caricaFile('ethereum'),
+            //         caricaFile('ripple')
+            //     ])
+            //     .then((dati) => {
+            //         console.log(dati[0]);
+            //         console.log(dati[1]);
+            //         console.log(dati[2]);
+            //     })
+            //     .catch((err) => {
+            //         console.log(err);
+            //     })
+            // }
+
+            function convertiJson() {
+                Promise.race([
+                    caricaFile('bitcoin'),
+                    caricaFile('ethereum'),
+                    caricaFile('ripple')
+                ])
+                .then((res) => {
+                    console.log(res);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+            }
+        
+
+    </script>
+</body>
+</html>
