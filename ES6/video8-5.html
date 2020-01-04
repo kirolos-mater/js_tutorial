@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Destrutturazione</title>
+</head>
+<body>
+    <h1 id="titolo">titolo h1</h1>
+    <p id="display">primo paragrafo</p>
+    <script>
+        // let booleano = true;
+        const obj = {
+            stringa: 'bla bla',
+            numero: 4,
+            booleano: false/* si può inserire una variabile 
+            esterna come proprietà di un oggetto dal ES6 */
+        }
+
+        // const parola = obj.stringa; /* ES5 */
+        /* per assegnare a variabili le proprietà dell'oggetto */
+        // const {stringa: parola, numero: num, booleano: falso} = obj;
+        // console.log(parola);
+        // console.log(num);
+        // console.log(falso);
+
+        // const {stringa, numero, booleano} = obj;
+        // console.log(stringa);
+        // console.log(numero);
+        // console.log(booleano);
+
+        /* per assegnare i valori di un array a delle
+        variabili */
+        const arr = [1, 2, 3, 4];
+        const [primo, secondo, ...miniArr] = arr;
+        console.log(primo); //output: 1
+        console.log(secondo); //output: 2
+        console.log(miniArr); //output: [3, 4]
+
+
+
+    </script>
+</body>
+</html>

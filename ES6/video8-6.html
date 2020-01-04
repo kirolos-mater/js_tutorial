@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Oggetti built-in Map e Set</title>
+</head>
+<body>
+    <h1>titolo h1</h1>
+    <p>primo paragrafo</p>
+    <script>
+        //oggetto Map per fare una collezione di coppie chiave/valore
+        // const mapObj = new Map();
+        // mapObj.set('chiave', 123);
+        // mapObj.set('chiave2', 456);
+
+        // console.log(mapObj.size);
+        // mapObj.delete('chiave');
+        // console.log(mapObj.size);
+        // console.log(mapObj.has('chiave2'));
+
+        // mapObj.clear();
+        // console.log(mapObj.size);
+        // const map2 = new Map([
+        //     ['prop1', 123], // [chiave, valore]
+        //     [100, 'due'],
+        //     ['prop3', 'bla bla']
+        // ]);
+        // console.log(map2.size);
+        
+        // const map3= new Map().set('chiave1', 890)
+        // .set('chiave2', 345).set('chiave3', 100);
+        // console.log(map3.size);
+
+
+        //oggetto Set per fare una collezione di valori unici
+        const set1 = new Set(['red', 'green', 'blue']);
+        console.log(set1.size);
+        const set2 = new Set().add('red').add('green')
+        .add('blue');
+        console.log(set2.size);
+        set1.delete('green');
+        console.log(set1.size);
+        set1.clear();
+        console.log(set1.size);
+
+        let arr1 = [1, 2, 3, 4];
+        let arr2 = [3, 4, 5, 6];
+        const nuovoSet = new Set([...arr1, ...arr2]);
+        console.log(nuovoSet.size);
+
+
+    </script>
+</body>
+</html>
