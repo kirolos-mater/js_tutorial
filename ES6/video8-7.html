@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>I generatori in JavaScript</title>
+</head>
+<body>
+    <h1 id="titolo">titolo h1</h1>
+    <p id="display">primo paragrafo</p>
+    <script>
+        /* un generatore a differenza di una funzione
+        esegue solo alcune delle sue parti.
+        Per creare un generatore si usa la keyword
+        'function*' */
+        function* gen1() {
+            console.log('inizio');
+            yield 3 + 5; /*'yield' viene usato per
+            definire la fine di una porzione di generatore */
+            console.log('in mezzo');
+            yield 'parola2';
+            console.log('fine');
+            return 100;
+        }
+        const ris1 = gen1(); /* alla prima invocazione
+        non succede nulla, ma si prepara il generatore 
+        ad essere invocato */
+        const r1 = ris1.next(); /* si usa 'next' per
+        passare alla prossima fase di esecuzione del
+        generatore */
+        console.log(r1); /* l'output mostra lo 'yield' 
+        e la situazione del generatore attraverso la
+        proprietà 'done' */
+        const r2 = ris1.next(); /* si usa 'next' per
+        passare alla prossima fase di esecuzione del
+        generatore */
+        console.log(r2); /* l'output mostra lo 'yield' 
+        e la situazione del generatore attraverso la
+        proprietà 'done' */
+        const r3 = ris1.next(); /* si usa 'next' per
+        passare alla prossima fase di esecuzione del
+        generatore */
+        console.log(r3); /* l'output mostra lo 'yield' 
+        e la situazione del generatore attraverso la
+        proprietà 'done'.
+        In caso ci sia un 'return' al posto dello 'yield'
+        mostrerebbe tale valore */
+
+        function* gen2(x) {
+            yield x;
+            const num = 5 + (yield(x + 1));
+            yield num;
+        }
+        const ris2 = gen2(10);
+        console.log(ris2.next()); //output: {value: 10, done: false}
+        console.log(ris2.next()); //output: {value: 11, done: false}
+        console.log(ris2.next(50)); //output: {value: 55, done: false}
+        console.log(ris2.next()); //output: {value: undefined, done: true}
+
+        function* gen3() {
+            let id = 0;
+            while(true) {
+                /* attento al loop infinito causato
+                dal fatto che la condizione del 'while'
+                risulta sempre vera */
+                yield id++;
+            }
+        }
+
+        const ris3 = gen3();
+        console.log(ris3.next());
+        console.log(ris3.next());
+        console.log(ris3.next());
+        console.log(ris3.next());
+        console.log(ris3.next());
+        console.log(ris3.next());
+
+        /* i generatori sono stati ideati per essere
+        eseguiti con le 'promise'.
+        i generatori possono essere innestati dentro 
+        altri generatori con un asterisco dopo lo
+        'yield' */
+    </script>
+</body>
+</html>

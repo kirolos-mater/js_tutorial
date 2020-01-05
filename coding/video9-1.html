@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Le 2 maniere di scrivere codice JavaScript</title>
+</head>
+<body>
+    <h1 id='titolo'>titolo h1</h1>
+    <button id="display">cliccami</button>
+    <script>
+        /* ci sono 2 modi di scrivere il codice, una
+        permissiva e una severa.
+        La permissiva è di default */
+        'use strict'; //per scrivere in maniera severa
+        x = 10;
+        console.log(x);
+        /* l'output differisce al variare della maniera
+        in caso si scriva il codice in severa, 'x' non
+        verrebbe stampato, perché non è stato dichiarato
+        correttamente */
+
+        function miaFunz() {
+            'use strict';
+            y = 50;
+            console.log(y);
+        }
+        miaFunz();
+        function miaFunz2(param, param) {
+            return param + param;
+        }
+        console.log(miaFunz2(5,10)); /* output:20
+        è un errore che passa inosservato
+        usando la maniera severa verrebbe mostrato
+        un errore che indica un duplicato */
+
+        let yield = 50;
+        console.log(yield); /* output: 50
+        ma questa è una parola riservata ai
+        generatori e quindi in maniera severa viene
+        mostrato l'errore */
+    </script>
+</body>
+</html>
