@@ -6,7 +6,16 @@
 <body>
     <button id="btn" onclick="scaricaFile()">scarica</button>
     <script>    
-        
+        function scaricaFile() {
+            let elem = document.createElement('a');
+            let file = 'data:text/plain;charset=utf-8,';
+            for(let i = 0; i < 10; i++) {
+                file += '\n' + i;
+            }
+            elem.setAttribute('href', file);
+            elem.download = 'file.txt';
+            elem.click();
+        }
     </script>
 </body>
 </html>

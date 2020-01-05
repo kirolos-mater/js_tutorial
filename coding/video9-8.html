@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Moduli JS</title>
+    <!-- <script src="script1.js" defer></script> -->
+    <!-- per importare il file dopo la lettura di tutto
+    il codice HTML -->
+</head>
+<body>
+    <h1 id="titolo">moduli</h1>
+    <p id="display"></p>
+
+
+    <!-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules -->
+
+    <!-- Importare codice JS in un file HTML (vedi video sez2/1) -->
+
+    <!-- I MODULI:
+    - server (vedi video sez5/1)
+    - strict mode (vedi video sez9/1)
+    - differiti automaticamente, quindi non serve l'attributo 'defer'
+    - scope (vedi video sez2/6) -->
+
+    <!-- MANIERA 1 -->
+    <!-- <script src="script1.js"></script> -->
+
+    <!-- <script>
+        console.log(miaStringa);
+        miaFunz();
+        console.log(window);
+    </script> -->
+
+    <!-- MANIERA 2 -->
+    <!-- <script type="module">
+        //Importare tutto con wildcard
+        // import * as valoriEsportati from './script2.js';
+        // console.log(valoriEsportati.miaStringa);
+        // valoriEsportati.miaFunz();
+
+        // Importare con destrutturazione (vedi video sez8/5)
+        // import {miaStringa, miaFunz} from './script2.js';
+        // console.log(miaStringa);
+        // miaFunz();
+
+        // Importare con destrutturazione e nuovi PerformanceNavigationTiming
+        // import {miaStringa as nuovaStr, miaFunz as nuovaFunz} from './script2.js';
+        // console.log(nuovaStr);
+        // nuovaFunz();
+
+        // Importare default
+        import cento from './script2.js';
+        console.log(cento());
+        /* non serve specificare ciò che si sta
+        importando  */
+
+    </script> -->
+
+    <!-- MANIERA 3 -->
+    <script type="module" src="./script2.js"></script>
+
+
+
+
+</body>
+</html>

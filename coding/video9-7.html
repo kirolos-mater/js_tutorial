@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Unit Test</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.9.2.css">
+</head>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
+    <script>
+        //UNIT TEST
+
+        //Password: almeno 8 caratteri
+        //lettere maiuscole/minuscole e numeri
+
+
+        function validarePassword(pwd) {
+            let valida = true;
+            if(pwd.length < 8) {
+                /* verifica che la password
+                abbia almeno 8 caratteri */
+                valida = false;
+            }
+            if(!/[A-Z]/.test(pwd)) {
+                /* verifica che nella password
+                ci siano lettere maiuscole */
+                valida = false;
+            }
+            if(!/[a-z]/.test(pwd)) {
+            /* verifica che nella password
+            ci siano lettere minuscole */
+            valida = false;
+            }
+            if(!/[0-9]/.test(pwd)) {
+                /* verifica che nella password
+                ci siano numeri */
+                valida = false;
+            }
+            return valida;
+        }
+
+        // console.assert(validarePassword('Pass1') 
+        // === false, 'Password corta');
+        // console.assert(validarePassword('password1')
+        // === false, 'Password non ha lettere maiuscole');
+        // console.assert(validarePassword('PASSWORD1')
+        // === false, 'Password non ha lettere minuscole');
+        // console.assert(validarePassword('Password')
+        // === false, 'Password non ha numeri');
+        // console.assert(validarePassword('Password1')
+        // === true, 'Password OK');
+
+        QUnit.test( "Password corta", function( assert ) {
+        assert.ok( validarePassword('Pass1') === false, "Passed!" );
+        });
+        QUnit.test( "Password non ha lettere maiuscole", function( assert ) {
+        assert.ok( validarePassword('password1') === false, "Passed!" );
+        });
+        QUnit.test( "Password non ha lettere minuscole", function( assert ) {
+        assert.ok( validarePassword('PASSWORD1') === false, "Passed!" );
+        });
+        QUnit.test( "Password non ha numeri", function( assert ) {
+        assert.ok( validarePassword('Password') === false, "Passed!" );
+        });
+        QUnit.test( "Password OK", function( assert ) {
+        assert.ok( validarePassword('Password1') === true, "Passed!" );
+        });
+
+
+
+    </script>
+</body>
+</html>
