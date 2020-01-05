@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Approfondire gli Array</title>
+</head>
+<body>
+    <h1>titolo h1</h1>
+    <!-- <button id="btn">cliccami</button> -->
+    <p id="display">primo paragrafo</p>
+    <script>
+        //introduzione array sez2/11
+
+        //prop: length
+        /* metodi: isArray(), push(), pop(), 
+        unshift(), shift(), forEach(), concat(),
+        splice(), sort(), from(), entries() */
+
+        //operatore spread/rest, ciclo for/for..of
+
+        let arr1 = ['ciao', 'a', 'tutti', 'a'];
+        //metodo join(), return stringa
+        console.log(arr1.join(' '));
+        /* output: ciao a tutti a */
+
+
+        //metodo includes(), return booleano (ES7)
+        console.log(arr1.includes('tutti'));
+        /* output: true */
+
+        //metodo indexOf(), lastIndexOf(), return indice
+        console.log(arr1.indexOf('tutti'));
+        /* output: 2 */
+        
+        console.log(arr1.lastIndexOf('a'));
+        /* output: 3 */
+
+
+        //metodo reverse()
+        console.log(arr1.reverse())
+        /* output: ["a", "tutti", "a", "ciao"] */
+
+        let arr2 = [10, 20, 30, 50, 70, 90, 120, 200];
+        //metodo every(), some(), return booleano
+        function ricerca(val) {
+            return val < 100;
+        }
+        let ris1 = arr2.every(ricerca);
+        console.log(ris1); //output: false
+        let ris2 = arr2.some(ricerca);
+        console.log(ris2); //output: true
+
+
+        //metodo find(), findIndex() (ES6), return elemento o indice
+        let ris3 = arr2.find((val) => {
+            return val > 100;
+        });
+        console.log(ris3); //output: 120
+        let ris4 = arr2.findIndex((val) => {
+        return val > 100;
+        });
+        console.log(ris4); //output: 6
+
+
+        //metodo filter(), return array
+        let ris5 = arr2.filter((val) => {
+            return val > 100;
+        });
+        console.log(ris5); //output: [120, 200]
+
+
+        //metodo map(), return array
+        let ris6= arr2.map((val) => {
+            return val * 20;
+        });
+        console.log(ris6);
+        /* output: [200, 400, 600, 1000, 
+        1400, 1800, 2400, 4000] */
+
+        //metodo reduce(), reduceRight(), return un solo valore
+        let ris7 = arr2.reduce((val1, val2) => {
+            return val1 - val2;
+        });
+        console.log(ris7); //output: -570
+        let ris8 = arr2.reduceRight((val1, val2) => {
+        return val1 - val2;
+        });
+        console.log(ris8); //output: -190
+
+
+
+    </script>
+</body>
+</html>

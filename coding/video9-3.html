@@ -1,13 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>La Console in JavaScript</title>
+    <script src="smart-console.js"></script>
 </head>
+
 <body>
     <h1 id='titolo'>titolo h1</h1>
     <button id="display">cliccami</button>
     <script>
         //console
+        // let str = 'stringa';
+        // let num = 10;
+
+        // console.groupCollapsed('miei-logs');
+
+        // console.log('del testo ...', str, num);
+        // /* output: del testo ... stringa 10 */
+        // console.log(`del ${str} testo ${num} ... `);
+        // /* output: del stringa testo 10 ...  */
+        // console.log('del %s testo %d ...', str, num);
+        // /* output: del stringa testo 10 ...  */
+
+        // console.warn('Attenzione');
+        // console.error('Errore');
+
+        // console.assert(num > 30, 'Errore in num');
+        // /* output: Assertion failed: Errore in num 
+        // perché 'assert' ha 2 input, il primo è la
+        // condizione da verificare, il secondo è 
+        // l'output in caso la condizione sia falsa*/
+
+        // console.groupEnd('miei-logs');
+
+        // console.time('loop');
+        // for(let i = 0; i < 1000000000; i++) {
+        //     //codice vario
+        // }
+
+        // console.timeEnd('loop');
+
+        // console.table({uno: 1, due: 2});
+        // console.table([['uno', 'due'], ['tre', 'quattro']]);
+
+        console.log('prova');
+
+        c.l('prova 2');
+        c.w('warning');
+        c.lB('scritta blu');
+        c.lBBG('scritta bianca e sfondo blu');
     </script>
 </body>
+
 </html>
